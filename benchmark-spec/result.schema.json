@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2zsoc.com/schemas/agentinfrabench/result-1.0.0.json",
+  "title": "AgentInfraBench result",
+  "type": "object",
+  "required": ["schema_version", "platform", "platform_version", "workload", "verdict", "score", "dimension_scores", "hard_gate_failures", "fully_loaded_cost_usd", "cost_per_accepted_outcome_usd", "receipt_sha256"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "platform": {"type": "string"},
+    "platform_version": {"type": "string"},
+    "workload": {"type": "string"},
+    "verdict": {"enum": ["not_eligible", "design_only", "production_candidate", "conditional", "development_only"]},
+    "score": {"type": "number", "minimum": 0, "maximum": 100},
+    "dimension_scores": {"type": "object"},
+    "hard_gate_failures": {"type": "array", "items": {"type": "string"}},
+    "fully_loaded_cost_usd": {"type": "number", "minimum": 0},
+    "cost_per_accepted_outcome_usd": {"type": "number", "minimum": 0},
+    "receipt_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

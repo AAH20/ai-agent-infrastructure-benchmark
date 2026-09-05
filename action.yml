@@ -1,0 +1,19 @@
+name: AgentInfraBench
+description: Benchmark AI agent infrastructure security, recovery and unit economics
+inputs:
+  scenario:
+    description: Repository-relative scenario JSON
+    required: true
+  output:
+    description: Evidence output directory
+    required: false
+    default: agentinfra-results
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: python3 "$GITHUB_ACTION_PATH/action_runner.py" "${{ inputs.scenario }}" "${{ inputs.output }}"
+    - uses: actions/upload-artifact@v4
+      with:
+        name: agentinfra-results
+        path: ${{ inputs.output }}

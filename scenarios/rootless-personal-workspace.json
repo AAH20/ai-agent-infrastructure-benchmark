@@ -1,0 +1,13 @@
+{
+  "platform":"Rootless personal workspace","version":"synthetic-v1","workload":"single-trusted-developer","operator":"synthetic-reference","run_at":"2026-09-05T08:00:00Z",
+  "evidence":[
+    {"control":"isolation.single_user_container","dimension":"isolation","status":"pass","provenance":"synthetic","summary":"Rootless container matches the single trusted-user profile.","artifact":"fixtures/rootless-profile.json","hard_gate":true},
+    {"control":"identity.short_lived_token","dimension":"identity_secrets","status":"partial","provenance":"synthetic","summary":"Token is scoped but fixture does not prove external revocation.","artifact":"fixtures/rootless-profile.json","hard_gate":false},
+    {"control":"network.logged_egress","dimension":"network","status":"partial","provenance":"synthetic","summary":"Egress is logged but not default-deny.","artifact":"fixtures/rootless-profile.json","hard_gate":false},
+    {"control":"authority.no_production_access","dimension":"authority","status":"pass","provenance":"synthetic","summary":"Profile contains no production credentials.","artifact":"fixtures/rootless-profile.json","hard_gate":true},
+    {"control":"recovery.git_remote","dimension":"recovery","status":"partial","provenance":"synthetic","summary":"Git remote protects committed work; running state is replaceable.","artifact":"fixtures/rootless-profile.json","hard_gate":false},
+    {"control":"observability.run_log","dimension":"observability","status":"partial","provenance":"synthetic","summary":"Run log exists without immutable retention.","artifact":"fixtures/rootless-profile.json","hard_gate":false},
+    {"control":"economics.accepted_outcome_cost","dimension":"economics","status":"pass","provenance":"synthetic","summary":"All fixture assumptions are exposed.","artifact":"fixtures/rootless-profile.json","hard_gate":false}
+  ],
+  "economics":{"accepted_outcomes":120,"infrastructure_usd":21.2,"model_usd":75,"storage_network_usd":5,"observability_usd":2,"human_review_hours":8,"human_hourly_usd":50,"operations_usd":25}
+}

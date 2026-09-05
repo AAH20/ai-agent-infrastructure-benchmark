@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentinfrabench"
+version = "0.1.0"
+description = "Open benchmark for AI agent infrastructure security, reliability and unit economics"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+
+[project.scripts]
+agentinfrabench = "agentinfrabench.cli:main"
+
+[tool.setuptools]
+packages = ["agentinfrabench"]

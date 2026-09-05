@@ -1,0 +1,13 @@
+{
+  "platform":"AgentFabric reference architecture","version":"0.1.0","workload":"untrusted-enterprise-agent-workspace","operator":"design-contract-not-live-test","run_at":"2026-09-05T08:00:00Z",
+  "evidence":[
+    {"control":"isolation.untrusted_tenant_boundary","dimension":"isolation","status":"pass","provenance":"design","summary":"MicroVM or dedicated-VM boundary is required by policy.","hard_gate":true},
+    {"control":"identity.workload_scoped_secrets","dimension":"identity_secrets","status":"pass","provenance":"design","summary":"JIT workload identity is the target contract.","hard_gate":false},
+    {"control":"network.default_deny_egress","dimension":"network","status":"pass","provenance":"design","summary":"Restricted profiles require default-deny egress.","hard_gate":false},
+    {"control":"authority.production_write_approval","dimension":"authority","status":"pass","provenance":"synthetic","summary":"The deterministic admission test requires approval for production mutation.","artifact":"tests/test_engine.py","hard_gate":true},
+    {"control":"recovery.idempotent_workflow","dimension":"recovery","status":"pass","provenance":"design","summary":"Temporal and idempotency are roadmap contracts.","hard_gate":false},
+    {"control":"observability.normalized_events","dimension":"observability","status":"pass","provenance":"design","summary":"Normalized provider events are specified but not implemented.","hard_gate":false},
+    {"control":"economics.accepted_outcome_cost","dimension":"economics","status":"pass","provenance":"synthetic","summary":"Reference engine calculates cost per accepted outcome.","artifact":"examples/customer-production-change.json","hard_gate":false}
+  ],
+  "economics":{"accepted_outcomes":384,"infrastructure_usd":196.5,"model_usd":300,"storage_network_usd":40,"observability_usd":35,"human_review_hours":20,"human_hourly_usd":50,"operations_usd":250}
+}

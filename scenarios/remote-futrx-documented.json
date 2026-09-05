@@ -1,0 +1,20 @@
+{
+  "platform": "Remote by FutrX",
+  "version": "public-main-observed-2026-09-05",
+  "workload": "untrusted-enterprise-agent-workspace",
+  "operator": "documentation-assessment-not-live-test",
+  "run_at": "2026-09-05T08:00:00Z",
+  "evidence": [
+    {"control":"isolation.untrusted_tenant_boundary","dimension":"isolation","status":"partial","provenance":"documented","summary":"Unprivileged LXC containers share the host kernel.","source_url":"https://github.com/futrx-com/remote.futrx/blob/main/ARCHITECTURE.md","hard_gate":true},
+    {"control":"isolation.host_execution","dimension":"isolation","status":"fail","provenance":"documented","summary":"Upstream threat model documents a loose-chat host-root execution path.","source_url":"https://github.com/futrx-com/remote.futrx/blob/main/docs/threat-model.md","hard_gate":true},
+    {"control":"identity.workload_scoped_secrets","dimension":"identity_secrets","status":"fail","provenance":"documented","summary":"Secrets and provider identities can persist in project-visible locations.","source_url":"https://github.com/futrx-com/remote.futrx/blob/main/docs/threat-model.md","hard_gate":false},
+    {"control":"network.default_deny_egress","dimension":"network","status":"fail","provenance":"documented","summary":"The public threat model describes unrestricted egress.","source_url":"https://github.com/futrx-com/remote.futrx/blob/main/docs/threat-model.md","hard_gate":false},
+    {"control":"network.sibling_segmentation","dimension":"network","status":"fail","provenance":"documented","summary":"The public architecture documents shared bridge limitations.","source_url":"https://github.com/futrx-com/remote.futrx/blob/main/docs/04-operations/09-deployment-and-operations.md","hard_gate":true},
+    {"control":"authority.production_write_approval","dimension":"authority","status":"fail","provenance":"documented","summary":"The threat model states that technical write approval is not enforced for the shared browser.","source_url":"https://github.com/futrx-com/remote.futrx/blob/main/docs/threat-model.md","hard_gate":true},
+    {"control":"recovery.workspace_persistence","dimension":"recovery","status":"pass","provenance":"documented","summary":"Project workspaces are durable across normal container replacement.","source_url":"https://github.com/futrx-com/remote.futrx","hard_gate":false},
+    {"control":"recovery.backup_restore","dimension":"recovery","status":"unknown","provenance":"documented","summary":"Upstream states that durable storage is not backup.","source_url":"https://github.com/futrx-com/remote.futrx","hard_gate":false},
+    {"control":"observability.normalized_events","dimension":"observability","status":"partial","provenance":"documented","summary":"Chat events are persisted, but this fixture does not establish immutable cross-provider telemetry.","source_url":"https://github.com/futrx-com/remote.futrx/blob/main/ARCHITECTURE.md","hard_gate":false},
+    {"control":"economics.accepted_outcome_cost","dimension":"economics","status":"unknown","provenance":"documented","summary":"Public materials do not establish independently accepted outcome economics.","source_url":"https://remote.futrx.com/","hard_gate":false}
+  ],
+  "economics":{"accepted_outcomes":100,"infrastructure_usd":40,"model_usd":120,"storage_network_usd":8,"observability_usd":0,"human_review_hours":10,"human_hourly_usd":50,"operations_usd":80}
+}

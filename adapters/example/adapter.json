@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "name": "example-platform",
+  "version_command": ["example-agent", "--version"],
+  "collector_command": ["python3", "collect.py"],
+  "supported_workloads": ["single-trusted-developer"],
+  "required_environment": [],
+  "notes": "Template only. An adapter must emit a scenario conforming to benchmark-spec/scenario.schema.json."
+}

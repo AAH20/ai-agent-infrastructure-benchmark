@@ -1,0 +1,1 @@
+{"classification":"synthetic","tenant":"single_trusted","runtime":"rootless-container","production_credentials":false,"egress":"logged","backup":"git-committed-state-only"}
